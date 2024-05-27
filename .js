@@ -1,9 +1,12 @@
 function insultMe() {
     var insults = [
-        "You're too awesome to insult!",
-        "You're as sharp as a spoon!",
-        "If you were a vegetable, you'd be a cactus!",
-        "Is your name Google? Because you have everything I've been searching for. Oops, wrong list!"
+        "If you were any slower you would be going backwards!",
+        "You probably smell like an indoor pool!",
+        "You are not pretty enough to be this dumb!",
+        "You look easy to draw!",
+        "Do you eat crayons?",
+        "You're as sharp as a bowling ball!",
+
     ];
     
     var randomIndex = Math.floor(Math.random() * insults.length);

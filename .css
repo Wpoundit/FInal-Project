@@ -16,7 +16,15 @@ button {
 }
 
 #insultContainer {
-    display: inline-block;
-    margin: 0 auto; 
+    text-align: center; 
+    margin: 60px;
+    padding: 70px 420px;
+    display: block;
     width: 50%; 
+    font-size: 2cm; 
+    font-family: cursive;
+}
+
+html {
+    background-image:("./img/360_F_412547765_ohTTmwiFDiy6SydjHK5XkXuUyLxzlByQ.jpg");
 }
