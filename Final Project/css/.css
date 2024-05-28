@@ -1,0 +1,30 @@
+button {
+    display: block;
+    margin: 0 auto; 
+    padding: 10px 20px; 
+    font-size: 1.6em; 
+    color: rgb(8, 8, 8);
+    background-color: rgb(54, 157, 241);
+}
+
+.container {
+    text-align: center; 
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+#insultContainer {
+    text-align: center; 
+    margin: 60px;
+    padding: 70px 420px;
+    display: block;
+    width: 50%; 
+    font-size: 2cm; 
+    font-family: cursive;
+}
+
+html {
+    background-image:("./img/360_F_412547765_ohTTmwiFDiy6SydjHK5XkXuUyLxzlBy.jpg");
+}
