@@ -1,8 +1,11 @@
 function insultMe() {
     const insults = [
-        "You're as bright as a black hole, and twice as dense.",
-        "You bring everyone so much joy... when you leave the room.",
-        "You have the charisma of a damp rag."
+        "If you were any slower you would be going backwards",
+        "You probably smell like an indoor pool",
+        "You are not pretty enough to be this dumb",
+        "You look easy to draw",
+        "Do you eat crayons?",
+        "You are as sharp as a bowling ball"
     ];
     
     const randomIndex = Math.floor(Math.random() * insults.length);
