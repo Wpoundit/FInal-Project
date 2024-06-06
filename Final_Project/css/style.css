@@ -1,15 +1,18 @@
+/* Style for the entire body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url('../img/paper.jpg'); /* Adjusted path */
+    background-image: url('../img/paper.webp'); /* Path to the background image */
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed; /* Makes the background image fixed when scrolling */
     background-position: center; /* Centers the background image */
+    background-color: #f0f0f0; /* Fallback color */
 }
 
+/* Style for the button */
 button {
     display: block;
     margin: 0 auto 20px auto;
@@ -28,6 +31,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Style for the insult container */
 #insultContainer {
     text-align: center;
     margin: 20px auto;
@@ -43,6 +47,7 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Style for the images */
 img {
     margin: 10px;
     border: 5px solid #007ACC;
@@ -50,6 +55,7 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Center container elements */
 .container {
     text-align: center;
 }

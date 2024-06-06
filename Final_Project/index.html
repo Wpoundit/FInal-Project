@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insult Button</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var name = 'slightly smiling face';
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/emoji',
+                headers: { 'X-Api-Key': 'a+LDBpNVCBkfRtzFMlRvIA==fglvmXuhQzCY5JGi' },
+                data: { name: name },
+                success: function(result) {
+                    console.log(result);
+                },
+                error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                    console.error('Error: ', textStatus, errorThrown);
+                }
+            });
+        });
+    </script>
     <script type="text/javascript" src="js/script.js" defer></script>
 </head>
 <body>
     <button onclick="insultMe()">Insult me</button>
-    <div id="insultContainer"></div>
-    <img src="https://source.unsplash.com/random/200x200?sig=1" alt="Random Image 1" />
-    <img src="https://source.unsplash.com/random/200x200?sig=2" alt="Random Image 2" />
-    <img src="https://source.unsplash.com/random/200x200?sig=3" alt="Random Image 3" />    
+    <div id="insultContainer"></div>  
 </body>
 </html>
