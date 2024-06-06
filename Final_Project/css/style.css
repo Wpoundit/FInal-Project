@@ -1,11 +1,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    margin: 20px;
-    background-image: url("./img/360_F_412547765_ohTTmwiFDiy6SydjHK5XkXuUyLxzlBy.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/paper.jpg'); /* Adjusted path */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed when scrolling */
+    background-position: center; /* Centers the background image */
 }
 
 button {
