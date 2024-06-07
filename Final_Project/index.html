@@ -5,28 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insult Button</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var name = 'slightly smiling face';
-            $.ajax({
-                method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/emoji',
-                headers: { 'X-Api-Key': 'a+LDBpNVCBkfRtzFMlRvIA==fglvmXuhQzCY5JGi' },
-                data: { name: name },
-                success: function(result) {
-                    console.log(result);
-                },
-                error: function ajaxError(jqXHR, textStatus, errorThrown) {
-                    console.error('Error: ', textStatus, errorThrown);
-                }
-            });
-        });
-    </script>
     <script type="text/javascript" src="js/script.js" defer></script>
 </head>
 <body>
     <button onclick="insultMe()">Insult me</button>
-    <div id="insultContainer"></div>  
+    <div id="insultContainer"></div>
+    <div id="gifContainer"></div> <!-- Separate container for the GIF -->
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Array of provided insults
+        const insults = [
+            "If you were any slower you would be going backwards",
+            "You probably smell like an indoor pool",
+            "You are not pretty enough to be this dumb",
+            "You look easy to draw",
+            "Do you eat crayons?",
+            "You are as sharp as a bowling ball!"
+        ];
+
+        // Function to randomly select an insult from the array
+        function getRandomInsult() {
+            return insults[Math.floor(Math.random() * insults.length)];
+        }
+
+        // Function to fetch a random GIF from Giphy API
+        function fetchRandomGif() {
+            const apiKey = 'N50O0RtZC97ABmGkiyC7c0irLNxO0kSY';
+            const apiUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=&rating=pg';
+
+            fetch(apiUrl)
+            .then(response => {
+                // Check if the response is successful
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Parse the JSON response
+                return response.json();
+            })
+            .then(data => {
+                // Handle the data from the API
+                const gifUrl = data.data.image_original_url;
+                console.log('GIF URL:', gifUrl); // Log the GIF URL for debugging
+                const gifElement = document.createElement('img');
+                gifElement.src = gifUrl;
+                document.getElementById('gifContainer').innerHTML = ""; // Clear previous GIF
+                document.getElementById('gifContainer').appendChild(gifElement);
+            })
+            .catch(error => {
+                // Handle any errors that occur during the API request
+                console.error('There was a problem with the API request:', error);
+            });
+        }
+
+        // Function to display a random insult and fetch a random GIF
+        function insultMe() {
+            const insultContainer = document.getElementById('insultContainer');
+            insultContainer.innerHTML = ""; // Clear previous insult
+
+            // Display random insult
+            const randomInsult = getRandomInsult();
+            insultContainer.textContent = randomInsult;
+
+            // Fetch random GIF
+            fetchRandomGif();
+        }
+    </script>
 </body>
 </html>
