@@ -9,8 +9,8 @@
 </head>
 <body>
     <button onclick="insultMe()">Insult me</button>
-    <div id="insultContainer"></div>
-    <div id="gifContainer"></div> <!-- Separate container for the GIF -->
+    <div id="insultContainer" class="container"></div>
+    <div id="gifContainer" class="container"></div> <!-- Separate container for the GIF -->
 
     <!-- Include jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -36,26 +36,32 @@
             const apiKey = 'N50O0RtZC97ABmGkiyC7c0irLNxO0kSY';
             const apiUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=&rating=pg';
 
+            console.log('Fetching GIF from:', apiUrl); // Log the API URL for debugging
+
             fetch(apiUrl)
             .then(response => {
-                // Check if the response is successful
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                // Parse the JSON response
                 return response.json();
             })
             .then(data => {
-                // Handle the data from the API
-                const gifUrl = data.data.image_original_url;
-                console.log('GIF URL:', gifUrl); // Log the GIF URL for debugging
-                const gifElement = document.createElement('img');
-                gifElement.src = gifUrl;
-                document.getElementById('gifContainer').innerHTML = ""; // Clear previous GIF
-                document.getElementById('gifContainer').appendChild(gifElement);
+                console.log('GIF data:', data); // Log the data received from the API for debugging
+
+                if (data.data && data.data.images && data.data.images.original && data.data.images.original.url) {
+                    const gifUrl = data.data.images.original.url;
+                    console.log('GIF URL:', gifUrl); // Log the GIF URL for debugging
+                    const gifElement = document.createElement('img');
+                    gifElement.src = gifUrl;
+                    gifElement.alt = "Random GIF";
+                    gifElement.classList.add('gif');
+                    document.getElementById('gifContainer').innerHTML = ""; // Clear previous GIF
+                    document.getElementById('gifContainer').appendChild(gifElement);
+                } else {
+                    console.error('No GIF URL found in the API response');
+                }
             })
             .catch(error => {
-                // Handle any errors that occur during the API request
                 console.error('There was a problem with the API request:', error);
             });
         }
